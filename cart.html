@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hotel Booking - Cart</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+		}
+
+		h1 {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		.cart-item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 20px;
+			border-bottom: 1px solid #ccc;
+			padding-bottom: 10px;
+		}
+
+		.cart-item img {
+			width: 100px;
+			height: auto;
+			object-fit: cover;
+			border-radius: 5px;
+			margin-right: 10px;
+		}
+
+		.cart-item-details {
+			flex-grow: 1;
+		}
+
+		.cart-item h3 {
+			margin: 0;
+			font-size: 18px;
+		}
+
+		.cart-item p {
+			margin: 0;
+			font-size: 14px;
+		}
+
+		.total {
+			text-align: right;
+			font-weight: bold;
+			margin-top: 20px;
+		}
+
+		.checkout-btn {
+			display: block;
+			margin-top: 30px;
+			background-color: #ffd700;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 25px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			text-decoration: none;
+			width: 100%;
+			text-align: center;
+		}
+
+		.checkout-btn:hover {
+			background-color: #ffcc00;
+		}
+
+		.book-another {
+			display: inline-block;
+			margin-top: 20px;
+		}
+
+		.book-another a {
+			display: inline-block;
+			padding: 5px 10px;
+			background-color: blue;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			font-size: 14px;
+			text-decoration: none;
+		}
+
+		.book-another a:hover {
+			background-color: #ffca28;
+		}
+
+		.quantity-container {
+			display: flex;
+			align-items: center;
+			margin-top: 10px;
+		}
+
+		.quantity-label {
+			margin-right: 10px;
+			font-size: 14px;
+		}
+
+		.quantity-controls {
+			display: flex;
+			align-items: center;
+		}
+
+		.quantity-btn {
+			background-color: #007bff;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			padding: 5px 8px;
+			margin: 0 5px;
+			font-size: 14px;
+			cursor: pointer;
+		}
+
+		.quantity-value {
+			font-weight: bold;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Cart</h1>
+	<div class="cart-items">
+	</div>
+	<div class="total">
+		<p>Total: $0</p>
+	</div>
+	<div class="quantity-container">
+		<span class="quantity-label">Quantity:</span>
+		<div class="quantity-controls">
+			<button id="decrease-btn" class="quantity-btn">-</button>
+			<span class="quantity-value">1</span>
+			<button id="increase-btn" class="quantity-btn">+</button>
+		</div>
+	</div>
+	<a href="details.html" class="checkout-btn">Proceed to Checkout</a>
+	<div class="book-another">
+		<a href="Rooms.html">Change the Room type</a>
+	</div>
+
+	<script>
+		// Function to get query parameters from URL
+		function getQueryParams(url) {
+			const queryParams = {};
+			const params = new URLSearchParams(new URL(url).search);
+			for (const [key, value] of params) {
+				queryParams[key] = value;
+			}
+			return queryParams;
+		}
+
+		// Function to add item to cart
+		function addToCart() {
+			const queryParams = getQueryParams(window.location.href);
+			const cartItemsContainer = document.querySelector('.cart-items');
+			const totalContainer = document.querySelector('.total p');
+			const decreaseBtn = document.getElementById('decrease-btn');
+			const increaseBtn = document.getElementById('increase-btn');
+			const quantityValue = document.querySelector('.quantity-value');
+			let totalPrice = parseFloat(totalContainer.innerText.substring(7));
+			if (isNaN(totalPrice)) {
+				totalPrice = 0;
+			}
+
+			// Create cart item element
+			const cartItem = document.createElement('div');
+			cartItem.className = 'cart-item';
+
+			// Create item image
+			const img = document.createElement('img');
+			img.src = decodeURIComponent(queryParams.image);
+			cartItem.appendChild(img);
+
+			// Create item details
+			const cartItemDetails = document.createElement('div');
+			cartItemDetails.className = 'cart-item-details';
+
+			const title = document.createElement('h3');
+			title.innerText = decodeURIComponent(queryParams.title);
+			cartItemDetails.appendChild(title);
+
+			const description = document.createElement('p');
+			description.innerText = decodeURIComponent(queryParams.description);
+			cartItemDetails.appendChild(description);
+
+			cartItem.appendChild(cartItemDetails);
+
+			// Create item price
+			const price = parseFloat(queryParams.price);
+			const itemPrice = document.createElement('p');
+			itemPrice.innerText = '$' + price.toFixed(2);
+			cartItem.appendChild(itemPrice);
+
+			cartItemsContainer.appendChild(cartItem);
+
+			// Update total price
+			totalPrice += price;
+			totalContainer.innerText = 'Total: $' + totalPrice.toFixed(2);
+
+			// Quantity controls event listeners
+			decreaseBtn.addEventListener('click', decreaseQuantity);
+			increaseBtn.addEventListener('click', increaseQuantity);
+
+			// Functions to increase and decrease quantity
+			function decreaseQuantity() {
+				let quantity = parseInt(quantityValue.innerText);
+				if (quantity > 1) {
+					quantity--;
+					quantityValue.innerText = quantity;
+					totalPrice -= price;
+					totalContainer.innerText = 'Total: $' + totalPrice.toFixed(2);
+				}
+			}
+
+			function increaseQuantity() {
+				let quantity = parseInt(quantityValue.innerText);
+				quantity++;
+				quantityValue.innerText = quantity;
+				totalPrice += price;
+				totalContainer.innerText = 'Total: $' + totalPrice.toFixed(2);
+			}
+		}
+
+		// Add event listener to run addToCart() when the page loads
+		window.addEventListener('load', addToCart);
+	</script>
+</body>
+</html>

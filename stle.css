@@ -1,0 +1,89 @@
+
+
+/* Style the page header */
+header {
+	background-color: #2D4059;
+	color: #FFFFFF;
+	padding: 1em;
+}
+
+/* Center the page content */
+main {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 1em;
+}
+
+/* Style the section heading */
+.rooms h1 {
+	font-size: 2em;
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+/* Style the room list */
+.rooms ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Style the room list item */
+.rooms li {
+	flex-basis: calc(33.33% - 1em);
+	margin-bottom: 2em;
+	padding: 1em;
+	background-color: #F5F5F5;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	text-align: center;
+}
+
+/* Style the room image */
+.rooms li img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	height: auto;
+	border-radius: 10px;
+}
+
+/* Style the room heading */
+.rooms li h2 {
+	font-size: 1.5em;
+	margin: 1em 0 0.5em;
+	color: #2D4059;
+}
+
+/* Style the room description */
+.rooms li p {
+	font-size: 1em;
+	margin: 0.5em 0;
+	line-height: 1.5;
+}
+
+/* Style the room price */
+.rooms li p:last-of-type {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #FFAE42;
+	margin-bottom: 1em;
+}
+
+/* Style the room booking link */
+.rooms li a {
+	display: inline-block;
+	padding: 0.5em 1em;
+	background-color: #2D4059;
+	color: #FFFFFF;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+}
+
+.rooms li a:hover {
+	background-color: #FFAE42;
+}

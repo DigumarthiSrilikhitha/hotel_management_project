@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hotel Management Admin Dashboard</title>
+	<link rel="stylesheet" href="styleadmin.css" type="text/css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+		<p class="logo"><span>M</span>-SoftTech</p>
+		<a href="dashboard.html" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
+		<a href="viewallrooms.jsp" class="icon-a"><i class="fa fa-bed icons"></i> &nbsp;&nbsp;Rooms</a>
+		<a href="viewAllBookings.jsp" class="icon-a"><i class="fa fa-list icons"></i> &nbsp;&nbsp;Bookings</a>
+        <a href="viewAllRegisters.jsp" class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;New Registers</a>
+		<a href="viewallpayments.jsp" class="icon-a"><i class="fa fa-tasks icons"></i> &nbsp;&nbsp;Payments</a>
+		<a href="viewallcontactdetails.jsp" class="icon-a"><i class="fa fa-bar-chart icons"></i> &nbsp;&nbsp;Contact_us</a>
+		<a href="#" class="icon-a"><i class="fa fa-cogs icons"></i> &nbsp;&nbsp;Settings</a>
+	</div>
+	<div id="main">
+		<div class="head">
+			<div class="col-div-6">
+				<span style="font-size:30px;cursor:pointer; color: white;" class="nav">&#9776; Dashboard</span>
+			</div>
+			<div class="col-div-6">
+				<div class="profile">
+					<img src="images/user.png" class="pro-img" />
+					<p>Admin <span>Hotel Management</span></p>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+		<br/>
+		<div class="col-div-4">
+			<div class="box">
+				<p>10<br/><span>Total Rooms</span></p>
+				<i class="fa fa-bed box-icon"></i>
+			</div>
+		</div>
+		<div class="col-div-4">
+			<div class="box">
+				<p>5<br/><span>Bookings Today</span></p>
+				<i class="fa fa-list box-icon"></i>
+			</div>
+		</div>
+		<div class="col-div-4">
+			<div class="box">
+				<p>3<br/><span>Tasks Pending</span></p>
+				<i class="fa fa-tasks box-icon"></i>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<br/><br/>
+		<div class="col-div-8">
+			<div class="box-8">
+				<div class="content-box">
+					<p>Recent Bookings <a href="viewAllBookings.jsp" style="text-decoration: none;">View All</a></p>
+					<br/>
+					<table>
+						<tr>
+							<th>Booking ID</th>
+							<th>Customer Name</th>
+							<th>Check-in Date</th>
+							<th>Check-out Date</th>
+							<th>Status</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>John Doe</td>
+							<td>2023-05-25</td>
+							<td>2023-05-28</td>
+							<td>Confirmed</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Jane Smith</td>
+							<td>2023-06-01</td>
+							<td>2023-06-05</td>
+							<td>Pending</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>David Johnson</td>
+							<td>2023-06-10</td>
+							<td>2023-06-15</td>
+							<td>Confirmed</td>
+						</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-div-4">
+			<div class="box-4">
+				<div class="content-box">
+					<p>Rooms Overview</p>
+					<br/>
+					<div class="room-info">
+						<div class="room">
+							<p>Room 1</p>
+							<p>Status: Occupied</p>
+							<p>Guest: John Doe</p>
+							<p>Check-in: 2023-05-25</p>
+							<p>Check-out: 2023-05-28</p>
+						</div>
+						<div class="room">
+							<p>Room 2</p>
+							<p>Status: Available</p>
+							<p>Guest: -</p>
+							<p>Check-in: -</p>
+							<p>Check-out: -</p>
+						</div>
+						<div class="room">
+							<p>Room 3</p>
+							<p>Status: Available</p>
+							<p>Guest: -</p>
+							<p>Check-in: -</p>
+							<p>Check-out: -</p>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</body>
+</html>

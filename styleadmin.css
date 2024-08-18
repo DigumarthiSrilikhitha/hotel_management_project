@@ -1,0 +1,183 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.sidenav {
+	height: 100%;
+	width: 230px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #333;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+
+#main {
+	margin-left: 230px;
+	padding: 20px;
+}
+
+.logo {
+	color: #fff;
+	font-size: 22px;
+	font-weight: bold;
+	padding-left: 20px;
+	margin-bottom: 30px;
+}
+
+.icon-a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	padding: 10px 20px;
+	transition: 0.3s;
+}
+
+.icon-a:hover {
+	background-color: #111;
+}
+
+.icons {
+	margin-right: 10px;
+}
+
+.head {
+	background-color: #333;
+	padding: 20px;
+	color: #fff;
+	font-size: 20px;
+}
+
+.col-div-6 {
+	width: 50%;
+	float: left;
+}
+
+.profile {
+	float: right;
+	text-align: right;
+}
+
+.pro-img {
+	width: 40px;
+	border-radius: 50%;
+	margin-top: -5px;
+	margin-right: 10px;
+}
+
+.box {
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+.box-icon {
+	font-size: 40px;
+	color: #007bff;
+}
+
+.box p {
+	font-size: 20px;
+	margin: 0;
+}
+
+.box span {
+	font-size: 14px;
+	color: #666;
+}
+
+.col-div-4 {
+	width: 33.33%;
+	float: left;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.box-8 {
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	height: 400px;
+	overflow-y: auto;
+}
+
+.content-box {
+	margin-top: -20px;
+}
+
+.content-box p {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.content-box span {
+	color: #007bff;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table th {
+	padding: 10px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+	color: #333;
+}
+
+table td {
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+	color: #666;
+}
+
+.room-info {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.room {
+	width: 100%;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+.room p {
+	margin: 0;
+}
+
+.room p:nth-child(2) {
+	color: #007bff;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+.room p:nth-child(3) {
+	color: #666;
+	margin-top: 5px;
+}
+
+.room p:nth-child(4) {
+	color: #666;
+	margin-top: 5px;
+}
+
+.room p:nth-child(5) {
+	color: #666;
+	margin-top: 5px;
+}
+
+.room:last-child {
+	border-bottom: none;
+}

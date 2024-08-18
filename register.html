@@ -1,0 +1,130 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <style>
+body,html
+{
+margin:0%;
+height:100%;
+width: 100%;
+}
+img
+{
+display:block;
+height:100%;
+width:100%;
+object-fit:cover;
+}
+h4 {
+  text-decoration: none
+}
+h4 {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #ffffff;
+  background-color: #007bff;
+  border-radius: 20px;
+}
+
+h4::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: #007bff;
+  border-radius: 50%;
+}
+
+h4 a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+h4 a:hover {
+  text-decoration: underline;
+}
+/* Container holding the image and the text */
+.container
+{
+position: relative ;
+text-align: center;
+color: white;
+background-repeat:no-repeat;
+background-size:100% 100vh;
+background-color:#85A4BE;
+height: 100%;
+width: 100%;
+}
+.message{
+position: absolute;
+top:25%;
+left:42%;
+color: black;
+border-width: 2px;
+border-radius: 10px;
+}
+.help{
+position: absolute;
+bottom:10%;
+right:10%;
+}
+</style>
+  <script type="text/javascript">
+  function validateForm() {
+    var mail = document.registration.mail.value;
+    var ma = document.registration.pass.value;
+
+    if (mail == "" || mail == "null") {
+      alert("Please enter your email");
+      document.registration.mail.focus();
+      return false;
+    }
+
+    var atpos = mail.indexOf("@");
+    var dotpos = mail.lastIndexOf(".");
+    if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= mail.length) {
+      alert("Not a valid e-mail address");
+      return false;
+    }
+
+    if (ma == "" || ma == "null") {
+      alert("Please enter your password");
+      document.registration.pass.focus();
+      return false;
+    }
+
+    alert("Your registration is successfully completed");
+    window.location.href = "login.html"; // Redirect to login.html
+    return true;
+  }
+</script>
+
+</head>
+<body style="background-color:#85A4BE;">
+  <div class="container">
+    <div class="message">
+      <h1>Signup Form</h1>
+      <form action="register.jsp" method="POST" name="registration" onsubmit="return validateForm();">
+        <label for="fname">Username:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="phone">Phone no:</label>
+        <input type="text" id="phone" name="phone"><br><br>
+        <label for="mail">Email id:</label>
+        <input type="text" name="mail"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="pass"><br><br>
+        <label for="password1">Confirm password:</label>
+        <input type="password" name="password"><br><br>
+        <input type="submit" name="submit" value="Register">
+      </form>
+    </div>
+    <div class="help">
+      <h4><a href="login.html" style="text-decoration: none;">I am already a member</a></h4>
+      <h4><a href="HOME.html" style="text-decoration: none;">Back to Home Page</a></h4>
+    </div>
+  </div>
+</body>
+</html>

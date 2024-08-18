@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hotel Booking - Rooms</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    .room {
+      display: inline-block;
+      width: 25%;
+      text-align: center;
+      margin: 20px;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0062cc;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .selected {
+      border: 2px solid #007bff !important;
+    }
+  </style>
+</head>
+<body>
+  <h1>Book Your Stay</h1>
+  <div class="room" id="room1">
+    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjByb29tfGVufDB8fDB8fA%3D%3D&w=1000&q=80">
+    <h2>Room 1</h2>
+    <p>Queen-size bed, ensuite bathroom, mini-fridge</p>
+    <h3>$100/night</h3>
+    <button onclick="addToCart(1)">Book now</button>
+  </div>
+  <div class="room" id="room2">
+    <img src="https://thumbs.dreamstime.com/b/hotel-room-beautiful-orange-sofa-included-43642330.jpg">
+    <h2>Room 2</h2>
+    <p>Two double beds, ensuite bathroom, balcony</p>
+    <h3>$120/night</h3>
+    <button onclick="addToCart(2)">Book now</button>
+  </div>
+  <div class="room" id="room3">
+    <img src="https://static01.nyt.com/images/2019/03/24/travel/24trending-shophotels1/24trending-shophotels1-superJumbo.jpg">
+    <h2>Room 3</h2>
+    <p>King-size bed, ensuite bathroom, kitchenette</p>
+    <h3>$150/night</h3>
+    <button onclick="addToCart(3)">Book now</button>
+  </div>
+  <div class="room" id="room4">
+    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG90ZWwlMjByb29tfGVufDB8fDB8fA%3D%3D&w=1000&q=80">
+    <h2>Room 4</h2>
+    <p>Two twin beds, shared bathroom, ocean view</p>
+    <h3>$80/night</h3>
+    <button onclick="addToCart(4)">Book now</button>
+  </div>
+
+  <script>
+    function addToCart(roomId) {
+      const room = document.getElementById('room' + roomId);
+      const image = room.querySelector('img').src;
+      const title = room.querySelector('h2').innerText;
+      const description = room.querySelector('p').innerText;
+      const price = parseFloat(room.querySelector('h3').innerText.replace('$', ''));
+
+      const queryParams = new URLSearchParams();
+      queryParams.append('id', roomId);
+      queryParams.append('title', encodeURIComponent(title));
+      queryParams.append('description', encodeURIComponent(description));
+      queryParams.append('price', price);
+      queryParams.append('image', encodeURIComponent(image));
+
+      window.location.href = 'cart.html?' + queryParams.toString();
+    }
+  </script>
+</body>
+</html>
